@@ -4,6 +4,7 @@ module com.example.structinventory {
     requires java.sql;
 
 
+
     opens com.example.structinventory to javafx.fxml;
     exports com.example.structinventory;
 }
