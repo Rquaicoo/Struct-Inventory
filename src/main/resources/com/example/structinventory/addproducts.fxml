@@ -3,7 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="parent" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="parent" stylesheets="@addproducts.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.structinventory.AddProducts">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -149,7 +149,7 @@
                   </Label>
                   <Separator layoutX="42.0" layoutY="327.0" prefWidth="650.0" />
                   <Separator layoutX="36.0" layoutY="131.0" prefWidth="650.0" />
-                  <TextField fx:id="product2" layoutX="40.0" layoutY="374.0" prefHeight="38.0" prefWidth="282.0" styleClass="txtbox" stylesheets="@addproducts.css" />
+                  <TextField fx:id="productName2" layoutX="40.0" layoutY="374.0" prefHeight="38.0" prefWidth="282.0" styleClass="txtbox" stylesheets="@addproducts.css" />
                   <Label layoutX="41.0" layoutY="355.0" text="Product Name">
                      <font>
                         <Font name="Gotham-Bold" size="13.0" />
@@ -173,12 +173,12 @@
                         <Font name="Gotham-Bold" size="13.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="35.0" layoutY="71.0" prefHeight="39.0" prefWidth="181.0" style="-fx-background-color: white;" />
+                  <ComboBox fx:id="categories" layoutX="35.0" layoutY="71.0" prefHeight="39.0" prefWidth="181.0" style="-fx-background-color: white;" />
                     </children>
                 </AnchorPane>
             <AnchorPane layoutX="30.0" layoutY="604.0" prefHeight="72.0" prefWidth="743.0" styleClass="card3" stylesheets="@addproducts.css">
                <children>
-                        <Button fx:id="addButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#add" onMouseClicked="#addProduct" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #b5ffb7#b5ffb7;">
+                        <Button fx:id="addButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #b5ffb7#b5ffb7;">
                             <graphic>
                                 <FontAwesomeIconView fx:id="addbutton" fill="#0f8000" glyphName="PLUS" size="15" />
                             </graphic>
@@ -188,7 +188,7 @@
                                 <Font name="Gotham-Bold" size="14.0" />
                             </font>
                         </Label>
-                  <Button fx:id="reemoveButton" layoutX="177.0" layoutY="23.0" mnemonicParsing="false" onAction="#remove" onMouseClicked="#removeProduct" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #ffc3b5#ffc3b5;">
+                  <Button fx:id="removeButton" layoutX="177.0" layoutY="23.0" mnemonicParsing="false" onAction="#remove" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #ffc3b5#ffc3b5;">
                      <graphic>
                         <FontAwesomeIconView fill="#ff3c00" glyphName="MINUS" size="15" />
                      </graphic>
