@@ -15,16 +15,21 @@ public class ManageGoods {
 
     public void addGoodWithStack(Stack<Good> goods, int index) {
         try {
-            Class.forName("com.mysql.cj.jbc.Driver");
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
             Statement statement= connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT username, email FROM user");
+            for(int i=0; i< index; i++) {
+                Good good = goods.pop();
+                int categoryId = good.categoryId;
+                String name = good.name;
+                int quantity = good.quantity;
+                double buyingPrice = good.buyingPrice;
+                double sellingPrice = good.sellingPrice;
+                double grossPrice = good.grossPrice;
 
-            while (resultSet.next()) {
-                System.out.println((resultSet.getString(0) + resultSet.getString(1)));
+                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
             }
 
             connection.close();
@@ -34,17 +39,60 @@ public class ManageGoods {
             System.out.println("" + ex);
         }
 
-        for(int i=0; i<index; i++) {
+    }
 
+    public void addGoodWithQueue(Queue<Good> goods, int index) {
+        try {
+
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            Statement statement= connection.createStatement();
+
+            for(int i=0; i< index; i++) {
+                Good good = goods.remove();
+                int categoryId = good.categoryId;
+                String name = good.name;
+                int quantity = good.quantity;
+                double buyingPrice = good.buyingPrice;
+                double sellingPrice = good.sellingPrice;
+                double grossPrice = good.grossPrice;
+
+                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+            }
+
+            connection.close();
+        }
+
+        catch (Exception ex) {
+            System.out.println("" + ex);
         }
     }
 
-    public void addGoodWithQueue(Queue<Good> goods) {
+    public void addGoodWithList(List<Good> goods, int index) {
+        try {
 
-    }
+            Connection connection = DriverManager.getConnection(url, username, password);
 
-    public void addGoodWithList() {
+            Statement statement= connection.createStatement();
 
+            for(int i=0; i< index; i++) {
+                Good good = goods.get(i);
+                int categoryId = good.categoryId;
+                String name = good.name;
+                int quantity = good.quantity;
+                double buyingPrice = good.buyingPrice;
+                double sellingPrice = good.sellingPrice;
+                double grossPrice = good.grossPrice;
+
+                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+            }
+
+            connection.close();
+        }
+
+        catch (Exception ex) {
+            System.out.println("" + ex);
+        }
     }
 
     public void connectDatabase() {
