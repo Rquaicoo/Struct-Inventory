@@ -1,15 +1,15 @@
 package models;
 
 public class Good {
-    public int categoryId;
+    public String category;
     public String name;
     public  int quantity;
     public  double buyingPrice;
     public double sellingPrice;
     public double grossPrice;
 
-    public Good(int categoryId, String name, int quantity, double buyingPrice, double sellingPrice, double grossPrice) {
-        this.categoryId = categoryId;
+    public Good(String category, String name, int quantity, double buyingPrice, double sellingPrice, double grossPrice) {
+        this.category = category;
         this.name = name;
         this.quantity = quantity;
         this.buyingPrice = buyingPrice;
