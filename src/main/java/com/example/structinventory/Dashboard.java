@@ -1,4 +1,4 @@
 package com.example.structinventory;
 
-public class Addproducts {
+public class Dashboard {
 }

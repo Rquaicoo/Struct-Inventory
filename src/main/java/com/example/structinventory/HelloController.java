@@ -61,14 +61,15 @@ public class HelloController {
     }
 
     public void navigateToDashboard() throws IOException {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
 
-        Scene scene = new Scene(root, 1000, 600);
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("addproducts.fxml"));
+
+        Scene scene = new Scene(root, 1000, 700);
         stage.setTitle("Struct Inventory");
         Image icon = new Image(getClass().getResource("images/Logo.png").toExternalForm());
         stage.getIcons().add(icon);
-        String css = this.getClass().getResource("dashboard.css").toExternalForm();
+        String css = this.getClass().getResource("addproducts.css").toExternalForm();
         scene.getStylesheets().add(css);
 
         stage.setScene(scene);
