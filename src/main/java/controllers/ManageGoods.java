@@ -22,14 +22,14 @@ public class ManageGoods {
 
             for(int i=0; i< index; i++) {
                 Good good = goods.pop();
-                int categoryId = good.categoryId;
+                String category = good.category;
                 String name = good.name;
                 int quantity = good.quantity;
                 double buyingPrice = good.buyingPrice;
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
             }
 
             connection.close();
@@ -50,14 +50,14 @@ public class ManageGoods {
 
             for(int i=0; i< index; i++) {
                 Good good = goods.remove();
-                int categoryId = good.categoryId;
+                String category = good.category;
                 String name = good.name;
                 int quantity = good.quantity;
                 double buyingPrice = good.buyingPrice;
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                statement.executeUpdate("INSERT INTO goods (category, name, quantity, buyingPrice, sellingPrice, grossPrice) VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
             }
 
             connection.close();
@@ -77,14 +77,14 @@ public class ManageGoods {
 
             for(int i=0; i< index; i++) {
                 Good good = goods.get(i);
-                int categoryId = good.categoryId;
+                String category = good.category;
                 String name = good.name;
                 int quantity = good.quantity;
                 double buyingPrice = good.buyingPrice;
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(categoryId, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES (" + categoryId + ",'" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
             }
 
             connection.close();
