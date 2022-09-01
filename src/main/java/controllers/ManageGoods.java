@@ -57,7 +57,7 @@ public class ManageGoods {
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods (category, name, quantity, buyingPrice, sellingPrice, grossPrice) VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
             }
 
             connection.close();

@@ -109,5 +109,38 @@ public class AddProducts implements Initializable {
 
         System.out.println("done");
     }
+
+    public void removeFromStack() {
+        try {
+            this.productStack.pop();
+            stackIndex = stackIndex -1;
+        }
+        catch (Exception ex) {
+            System.out.println(""+ex);
+        }
+    }
+
+    public  void removeFromQueue() {
+        try {
+            this.productQueue.remove();
+            queueIndex = stackIndex -1;
+        }
+
+        catch (Exception ex) {
+            System.out.println("" + ex);
+        }
+
+    }
+
+    public void removeFromList() {
+        try {
+            this.productList.remove(listIndex);
+            listIndex = listIndex - 1;
+        }
+
+        catch (Exception ex) {
+            System.out.println("" + ex);
+        }
+    }
 }
 

@@ -6,5 +6,8 @@ module com.example.structinventory {
 
 
     opens com.example.structinventory to javafx.fxml;
+    opens controllers to javafx.fxml;
     exports com.example.structinventory;
+    exports models;
+    exports controllers;
 }
