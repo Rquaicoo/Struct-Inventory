@@ -18,8 +18,6 @@ public class ManageGoods {
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            Statement statement= connection.createStatement();
-
             for(int i=0; i< index; i++) {
                 Good good = goods.pop();
                 String category = good.category;
@@ -29,7 +27,9 @@ public class ManageGoods {
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                PreparedStatement ps = connection.prepareStatement("INSERT INTO goods (category, name, quantity, buyingPrice, sellingPrice, grossPrice) VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                ps.execute();
+
             }
 
             connection.close();
@@ -46,8 +46,6 @@ public class ManageGoods {
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            Statement statement= connection.createStatement();
-
             for(int i=0; i< index; i++) {
                 Good good = goods.remove();
                 String category = good.category;
@@ -57,7 +55,8 @@ public class ManageGoods {
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                PreparedStatement ps = connection.prepareStatement("INSERT INTO goods (category, name, quantity, buyingPrice, sellingPrice, grossPrice) VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                ps.execute();
             }
 
             connection.close();
@@ -73,8 +72,6 @@ public class ManageGoods {
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            Statement statement= connection.createStatement();
-
             for(int i=0; i< index; i++) {
                 Good good = goods.get(i);
                 String category = good.category;
@@ -84,8 +81,8 @@ public class ManageGoods {
                 double sellingPrice = good.sellingPrice;
                 double grossPrice = good.grossPrice;
 
-                statement.executeUpdate("INSERT INTO goods(category, name, quantity, buyingPrice, sellingPrice, grossPrice VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
-            }
+                PreparedStatement ps = connection.prepareStatement("INSERT INTO goods (category, name, quantity, buyingPrice, sellingPrice, grossPrice) VALUES ('" + category + "','" + name + "'," + quantity + "," + buyingPrice + "," + sellingPrice + "," + grossPrice + ")");
+                ps.execute();            }
 
             connection.close();
         }
