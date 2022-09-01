@@ -89,11 +89,25 @@ public class AddProducts implements Initializable {
         Good good1 = new Good(_category, _productName1, _quantity1, _buyingPrice1, _sellingPrice1, _grossPrice1);
         Good good2 = new Good(_category, _productName2, _quantity2, _buyingPrice2, _sellingPrice2, _grossPrice2);
 
-        productStack.push(good1);
-        productStack.push(good2);
-        this.stackIndex +=2;
+        if (categories.getSelectionModel().getSelectedIndex()  >=0 && categories.getSelectionModel().getSelectedIndex() < 5) {
+            productStack.push(good1);
+            productStack.push(good2);
+            this.stackIndex += 2;
+        }
 
+        else if (categories.getSelectionModel().getSelectedIndex()  >=5 && categories.getSelectionModel().getSelectedIndex() < 8) {
+            productQueue.add(good1);
+            productQueue.add(good2);
+            this.queueIndex +=2;
+        }
 
+        else {
+            productList.add(listIndex, good1);
+            productList.add(listIndex + 1, good2);
+            this.listIndex += 2;
+        }
+
+    System.out.println(categories.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
@@ -105,7 +119,17 @@ public class AddProducts implements Initializable {
     private void save(ActionEvent actionEvent) {
         ManageGoods manageGoods = new ManageGoods();
 
-        manageGoods.addGoodWithStack(productStack, this.stackIndex);
+        if (categories.getSelectionModel().getSelectedIndex()  >=0 && categories.getSelectionModel().getSelectedIndex() < 5) {
+            manageGoods.addGoodWithStack(productStack, this.stackIndex);
+        }
+
+        else if (categories.getSelectionModel().getSelectedIndex()  >=5 && categories.getSelectionModel().getSelectedIndex() < 8) {
+            manageGoods.addGoodWithQueue(productQueue, this.queueIndex);
+        }
+
+        else {
+            manageGoods.addGoodWithList(productList, this.stackIndex);
+        }
 
         System.out.println("done");
     }
